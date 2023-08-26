@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Profile</title>
+  <link rel="icon" type="image/x-icon" href="../images/logo.png">
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="../css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../css/responsive.css" rel="stylesheet" />
+    <!-- sweet alert  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Montserrat:600");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:800");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+body {
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(270deg, #ffead1, #7b57b2, #e0b5ff);
+  background-size: 150% 150%;
+  animation: backgroundAnimation 10s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+.profile {
+  animation: loadProfile 0.6s ease-in-out;
+  animation-fill-mode: both;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: 750px;
+  max-width: 900px;
+}
+
+.profile-bg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 30px 50px -20px rgba(14, 0, 47, 0.21);
+  width: calc(100% - 75px);
+  height: calc(100% - 110px);
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+} 
+
+.profile-image {
+  animation: loadProfileImage 1s ease-in-out 0.5s;
+  animation-fill-mode: both;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 25px 45px -20px rgba(174, 75, 199, 0.55),
+    inset 0 0px 120px rgba(102, 46, 165, 0.75);
+  width: 45%;
+  flex: none;
+  background-image: url("https://zephyo.github.io/22Days/code/3/graphics/profile.png");
+  background-size: cover;
+  background-position: center;
+}
+
+
+.profile-image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-image: #7b57b2;
+  opacity: 0.8;
+  mix-blend-mode: screen;
+}
+
+.camera1 {
+    padding-bottom: 10px;
+    height: 250px;
+    width: 250px;
+    justify-content: left;
+  
+   
+}
+
+.camera {
+  color: #FFFF;
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  font-size: 1.3rem;
+}
+
+.profile-info {
+  margin-top: 120px;
+  padding: 8% 8% 2% 8%;
+  position: relative;
+}
+
+.profile-info h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0.7rem;
+  position: absolute;
+  animation-fill-mode: both;
+}
+
+h1.first-name {
+  animation: titleEffect 1s cubic-bezier(0,0.2,0.4,1);
+  top: -98px;
+  left: -47px;
+} 
+
+h1.second-name {
+  animation: titleEffect 1s cubic-bezier(0,0,0.3,1);
+  top: -34px;
+  left: -18px;
+}
+
+.profile-info h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  margin-top: 0;
+  margin-bottom: 5%;
+}
+
+.social-media-icons a,
+.profile-info h2 {
+  color: #7b57b2;
+}
+
+.profile-info p {
+  line-height: 1.5rem;
+}
+
+.social-media-icons {
+  display: flex;
+}
+
+.social-media-icons a {
+  margin-top: 7%;
+  font-size: 1.2rem;
+  flex: auto;
+  text-align: center;
+}
+
+.camera,
+.social-media-icons a {
+  transition: text-shadow 0.5s ease;
+}
+
+.camera:hover,
+.social-media-icons a:hover {
+  text-shadow: 0px 5px 15px rgba(1, 5, 12, 0.45);
+}
+
+.statistics {
+  margin-right: 10px;
+  margin-left: 10px;
+  line-height: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.statistics p {
+  margin: 3%;
+  flex: auto;
+  color: #703bbe;
+}
+
+.statistics p strong {
+  font-size: 1.4rem;
+  color: #000;
+  font-weight: 200;
+  margin-right: 0.3rem;
+}
+
+.icon {
+  background: transparent no-repeat center;
+  background-size: contain;
+  background-origin: content-box;
+  width: 60px;
+  height: 60px;
+  padding: 15px;
+  border: none;
+  transition: transform 0.5s ease;
+}
+
+.icon:hover {
+  transform: scale(0.9);
+}
+
+.arrow {
+  flex: 0 1 75px;
+  background-image: url("https://zephyo.github.io/22Days/code/3/graphics/arrow.svg");
+}
+
+.right {
+  transform: rotate(180deg);
+}
+
+.right:hover {
+  transform: scale(0.9) rotate(180deg);
+}
+
+.close {
+  background-image: url("https://zephyo.github.io/22Days/code/3/graphics/close.svg");
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+@media only screen and (max-aspect-ratio: 4/7) and (max-width: 600px) {
+  .profile {
+    margin: 3%;
+    height: 97%;
+  }
+  .container {
+    height: 86%;
+    flex-direction: column;
+  }
+  .profile-image {
+    height: 40%;
+    width: calc(100% - 90px);
+  }
+  .profile-bg {
+    width: 100%;
+  }
+  h1.first-name {
+    left: 10px;
+  }
+  h1.second-name {
+    left: 60px;
+  }
+}
+
+@media screen and (min-aspect-ratio: 4/7) {
+  .profile {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes loadProfile {
+ from{
+    transform: translateY(100px);
+    opacity: 0;
+  }
+ to {
+     transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes loadProfileImage {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+ to {
+     transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes titleEffect {
+ from {
+   opacity:0;
+     transform: translateX(-75px);
+  }
+  to {
+     transform: translateX(0px);
+    opacity: 1;
+  }
+}
+a.ex1:hover::before{
+    content: "Magesh25@gmail.com";  
+}
+a.ex2:hover::after{
+    content: "8767584933";
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+html {
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(270deg, #ffead1, #7b57b2, #e0b5ff);
+  background-size: 150% 150%;
+  animation: backgroundAnimation 10s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;}
+
+.feedback-button {
+  height: 40px;
+  border: solid 3px #f7bbbb;
+  background: #333;
+  width: 100px;
+  line-height: 32px;
+  -webkit-transform: rotate(-90deg);
+  font-weight: 600;
+  color: white;
+  transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  text-align: center;
+  font-size: 17px;
+  position: fixed;
+  right: -40px;
+  top: 45%;
+  font-family: "Montserrat", sans-serif;
+  z-index: 999;
+}
+
+#feedback-main {
+  display: none;
+  float: left;
+  padding-top: 0px;
+}
+
+#feedback-div {
+  background-color: rgba(72, 72, 72, 0.4);
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 35px;
+  padding-bottom: 50px;
+  width: 450px;
+  float: left;
+  left: 52%;
+  position: absolute;
+  margin-top: 30px;
+  margin-left: -260px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+.feedback-input {
+  color: #3c3c3c;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 10px;
+  line-height: 22px;
+  background-color: #fbfbfb;
+  padding: 13px 13px 13px 54px;
+  margin-bottom: 10px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 3px solid rgba(0, 0, 0, 0);
+}
+
+.feedback-input:focus {
+  background: #fff;
+  box-shadow: 0;
+  border: 3px solid #7b57b2;
+  color: #7b57b2;
+  outline: none;
+  padding: 13px 13px 13px 54px;
+}
+
+
+/* Icons ---------------------------------- */
+
+#feedback-name {
+  background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
+}
+
+#feedback-name:focus {
+  background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+  background-size: 30px 30px;
+  background-position: 8px 5px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
+}
+
+#feedback-email {
+  background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
+}
+
+#feedback-email:focus {
+  background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
+}
+
+#feedback-comment {
+  background-image: url(http://rexkirby.com/kirbyandson/images/comment.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
+}
+
+#feedback-comment {
+  width: 100%;
+  height: 150px;
+  line-height: 150%;
+  resize: vertical;
+}
+
+input:hover,
+#feedback-comment:hover,
+input:focus,
+#feedback-comment:focus {
+  background-color: white;
+}
+
+#feedback-button-blue {
+  font-family: "Montserrat", sans-serif;
+  float: left;
+  width: 100%;
+  border-radius: 70px;
+  border: #fbfbfb solid 4px;
+  cursor: pointer;
+  background-color: #c7acf0;
+  color: white;
+  font-size: 24px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  margin-top: -4px;
+  font-weight: 700;
+}
+
+#feedback-button-blue:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: #7b57b2;
+}
+
+.feedback-button-blue:hover {
+  color: #7b57b2;
+}
+
+.feedback-ease {
+  width: 0px;
+  height: 74px;
+  border-radius: 70px;
+  background-color: #fbfbfb;
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -o-transition: .3s ease;
+  -ms-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.feedback-submit:hover .feedback-ease {
+  width: 100%;
+  border-radius: 70px;
+  background-color: white;
+}
+
+@media only screen and (max-width: 580px) {
+  #feedback-div {
+    left: 3%;
+    margin-right: 3%;
+    width: 88%;
+    margin-left: 0;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
+</style>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="../index.html">
+            <img src="../images/logo.png" alt="">
+          </a>
+
+<!---->
+  <main class="profile">
+    <div class="profile-bg"></div>
+    <section class="container">
+      <aside class="profile-image">
+        <a class="camera" href="#">  
+            <img src="./images/man.jpg" class="camera1" alt="">
+                      <i class="fa fa-camera"></i>
+                  </a>
+      </aside>
+      <section class="profile-info">
+        <h1 class="first-name">Magesh</h1>
+        <h1 class="second-name">Kumar</h1>
+        <h2>ABOUT</h2>
+        <p> 
+          Hello Hello, I'm Magesh Kumar, Electrician at Jolarpet, happy to be here to work for you! Thanks for Contacting me 🌼
+        </p>
+  
+        <aside class="social-media-icons">
+        <a class="ex1" href="" target="_blank">
+           <i class="material-icons">mail</i>
+        </a>
+        <a class="ex2" href="" target="_blank">
+            <i class="material-icons">phone</i>
+        </a>
+        </aside>
+      </section>
+    </section>
+    <section class="statistics">
+      <button class="icon arrow left"></button>
+      <button class="icon arrow right"></button>
+      <p><strong>Address</strong>New Bus Shop no.12</p>
+      <p><strong>Location</strong>Jolarpet</p>
+    </section>
+    <button class="icon close"></button>
+  </main>
+
+  <div id="feedback-main">
+    <div id="feedback-div">
+      <form action="" method="post" class="form" id="feedback-form1" name="form1" enctype="multipart/form-data">
+  
+        <p class="name">
+          <input name="name" type="name" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" required placeholder="Name" id="feedback-name" />
+        </p>
+  
+        <p class="email">
+          <input name="email" type="email" class="validate[required,custom[email]] feedback-input" id="feedback-email" placeholder="Email" required />
+        </p>
+  
+        <p class="text">
+          <textarea name="comment" type="comment" class="validate[required,length[6,300]] feedback-input" id="feedback-comment" required placeholder="Hey, I really love the site but I believe that you could incorporate some ..... and also get rid of the ...... on the section."></textarea>
+        </p>
+  
+        <div class="feedback-submit">
+          <input type="submit" value="SEND" id="feedback-button-blue" />
+          <div class="feedback-ease"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <button id="popup" class="feedback-button" onclick="toggle_visibility()">Feedback</button>
+  <script src="_include/js/feedback.js"></script>
+
+
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/bootstrap.js"></script>
+<script>
+  function toggle_visibility() {
+    var e = document.getElementById('feedback-main');
+    if(e.style.display == 'block')
+       e.style.display = 'none';
+    else
+       e.style.display = 'block';
+ }
+
+</script>
+<script>
+  document.getElementById('feedback-button-blue').addEventListener('click',function(){
+    swal.fire({
+  title: 'Electrician!',
+  text: 'Thanks for your Feedback',
+  })
+})
+</script>
+
+</body>
+
+</html>
