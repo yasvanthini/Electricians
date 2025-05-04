@@ -1,2 +1,2 @@
 # Electricians
-Easy Electricians using HTML, CSS, BOOTSTRAP, JAVASCRIPT 
+Easy finding Electricians using HTML, CSS, BOOTSTRAP, JAVASCRIPT 
